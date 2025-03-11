@@ -31,4 +31,4 @@ jobs:
       - name: Copy template to Visual Studio folder
         run: |
           mkdir -p "$HOME/Documents/Visual Studio 2022/Templates/ProjectTemplates"
-          cp -r "$HOME/.template/*" "$HOME/Documents/Visual Studio 2022/Templates/ProjectTemplates/"
+          cp -r "$HOME/.template/"* "$HOME/Documents/Visual Studio 2022/Templates/ProjectTemplates/"
