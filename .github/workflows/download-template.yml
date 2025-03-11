@@ -1,0 +1,30 @@
+name: Download and install template
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  download-template:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Download template
+        run: |
+          git clone https://github.com/mfridel/template-net.git
+          mkdir -p "$HOME/.template"
+          cp -r template-net/* "$HOME/.template/"
+
+      - name: Copy template to Visual Studio folder
+        run: |
+          mkdir -p "$HOME/Documents/Visual Studio 2022/Templates/ProjectTemplates"
+          cp -r "$HOME/.template/*" "$HOME/Documents/Visual Studio 2022/Templates/ProjectTemplates/"
