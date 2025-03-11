@@ -24,6 +24,10 @@ jobs:
           mkdir -p "$HOME/.template"
           cp -r template-net/* "$HOME/.template/"
 
+      - name: List downloaded files
+        run: |
+          ls -la "$HOME/.template"
+
       - name: Copy template to Visual Studio folder
         run: |
           mkdir -p "$HOME/Documents/Visual Studio 2022/Templates/ProjectTemplates"
